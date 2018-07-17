@@ -1,0 +1,4 @@
+<li id="<%=list.id%>">
+	<a href="/lists/<%=list.id%>"> <%= list.title %> </a> <br>
+	<%= button_to "Delete", list_path(list), method: :delete, data: {confirm: "Are you sure? This action is irreversible"} %>
+</li>
