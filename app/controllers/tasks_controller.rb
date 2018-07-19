@@ -1,19 +1,54 @@
 class TasksController < ApplicationController
 	before_action :authorize
-	respond_to :html, :js
+
+  def index
+    if current_user != nil
+      @tasks = current_user.tasks
+    end
+  end
 
 	def new
-		@task = Task.new
-  	end
+		
+  end
 
-  	def create
-    	@task  = Task.create(task_params)
-  	end
+  def create
+    @task  = current_user.tasks.new(task_params)
+    if @task.save
+      # If list saves in the db successfully:
+      respond_to do |format|
+
+      # # if the response fomat is html, redirect as usual
+        format.html { redirect_to root_path }
+
+        format.js { }
+      end
+    else
+      # If list failsto create:
+      flash.now.alert = "Couldn't create task. Try again."
+    end
+  end
+
+  def destroy
+    @current = Task.find(params[:id])
+    if @current.destroy
+      respond_to do |format|
+        format.html do 
+          byebug
+        redirect_to root_path
+      end
+
+        format.js {}
+      end
+    else
+      # If list failsto create:
+      flash.now.alert = "Couldn't delete task. Try again."
+    end
+  end
 
   private
 
     def task_params
-      params.require(:task).permit(:description)
+      params.require(:task).permit(:description, :address)
     end
 
 end

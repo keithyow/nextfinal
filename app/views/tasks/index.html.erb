@@ -1,0 +1,22 @@
+<h3>My To-Do(s)</h3>
+
+<div>New Task</div>
+<%= form_for Task.new do |f| %>
+  <div class="form-group">
+    <%= f.text_field :description, placeholder: "New task description" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :address, placeholder: "Location" %>
+  </div>
+  
+  <div class="form-group">
+  <%= f.submit data:{ disable_with: false}, html: {id: "submitform"} %>
+  </div>
+<% end %>
+
+
+
+<ul>
+	<%= render @tasks %>
+</ul>

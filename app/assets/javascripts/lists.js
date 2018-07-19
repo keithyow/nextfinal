@@ -31,7 +31,10 @@ $(document).ready(function() {
 
     // debugger;
   });
+});
 
+
+$(document).ready(function() { 
   $("button").click(function(event){
     event.preventDefault();
 

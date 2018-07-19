@@ -1,0 +1,9 @@
+<h1> Welcome to To Do Wonders </h1>
+
+<h2>To do list... Simplified</h2>
+
+<% if current_user != nil %>
+	<a href="/tasks">Click here to view all your tasks</a>
+<%else%>
+	<a href="/login">Login to view your tasks</a>
+<% end %>

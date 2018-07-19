@@ -1,2 +1,4 @@
 // render will not allow addition of any local variables and hence render partial is used
 $('ul').append("<%= j render partial: 'list', locals: {list: @list} %>")
+
+$('#list_title').val('')
