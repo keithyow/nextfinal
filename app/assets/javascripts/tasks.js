@@ -1,8 +1,7 @@
 //= require jquery
 $(document).ready(function() { 
-  $("#submitform").click(function(event){
+  $("#new_task").submit(function(event){
     event.preventDefault();
-
     // comment
   	var action = $(this).attr('action');
     var method = $(this).attr('method');
@@ -21,18 +20,38 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() { 
-  $("button").click(function(event){
-    event.preventDefault();
-     
-    var action = $(this).attr('action');
-    var method = $(this).attr('method');
+// $(document).ready(function() { 
+//   $(".button_to").submit(function(event){
+//     event.preventDefault();
+//     console.log("prevented Default");
 
-    $.ajax({
-      method: method,
-      url: action,
-      dataType: 'script'
 
-    });
-	 });
-});
+//     var action = $(this).attr('action');
+//     var method = this.children[0].value;
+
+//     $.ajax({
+//       method: 'DELETE',
+//       url: action,
+//       data: "&authenticity_token="+this.children[2].value, 
+//       dataType: 'script'
+
+//     });
+//  });
+// });
+
+
+// $(document).ready(function() { 
+//   $("button").submit(function(event){
+//     event.preventDefault();
+
+//     var action = $(this).attr('action');
+//     var method = $(this).attr('method');
+
+//     $.ajax({
+//       method: method,
+//       url: action,
+//       dataType: 'script'
+
+//     });
+// 	 });
+// });

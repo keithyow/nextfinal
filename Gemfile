@@ -63,3 +63,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
  # Use jQuery
  gem 'jquery-rails'
+
+ gem 'pg_search'
+
+ gem 'braintree'
+
+ gem 'figaro'

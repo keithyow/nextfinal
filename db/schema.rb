@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2018_07_13_044859) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
-    t.string "address"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
