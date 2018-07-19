@@ -6,6 +6,8 @@ class TasksController < ApplicationController
       # @tasks = current_user.tasks
       if params[:term]
         @tasks = current_user.tasks.search_description(params[:term])
+      elsif current_user.role == "admin"
+        @tasks = Task.all
       else
         @tasks = current_user.tasks
       end
@@ -47,7 +49,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:description, :address)
+      params.require(:task).permit(:description)
     end
 
 end

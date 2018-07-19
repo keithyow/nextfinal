@@ -2,19 +2,22 @@
 $(document).ready(function() { 
   $("#new_task").submit(function(event){
     event.preventDefault();
-    // comment
+    // gets path (/tasks)
   	var action = $(this).attr('action');
+    // gets method type (post)
     var method = $(this).attr('method');
 
-    // comment on serializeArray
+    // serializeArray turns all the form data into a nicely structured object including nesting
+    // Since currently using strong params(for better security - private params), nested structure where “tasks” is a top level key is needed
+    // eg. data: { tasks: {description: description} }
     var data = $(this).serializeArray();
 
-    // comment
+    // AJAX request using jQuery
     $.ajax({
       method: method,
       url: action,
       data: data,
-      // this line makes the response format JavaScript and not html.
+      // this line makes the response format JavaScript and not html. AJAX using JavaScript
       dataType: 'script'
     });
   });
