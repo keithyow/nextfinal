@@ -3,15 +3,12 @@
 <div>New Task</div>
 <%= form_for Task.new do |f| %>
   <div class="form-group">
-    <%= f.text_field :description, placeholder: "New task description" %>
+    <%= f.text_field :description, placeholder: "Task description" %>
   </div>
 
+
   <div class="form-group">
-    <%= f.text_field :address, placeholder: "Location" %>
-  </div>
-  
-  <div class="form-group">
-  <%= f.submit data:{ disable_with: false}, html: {id: "submitform"} %>
+  <%= f.submit data:{ disable_with: false}, id: "submitform" %>
   </div>
 <% end %>
 

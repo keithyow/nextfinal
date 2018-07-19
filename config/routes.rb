@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   
   # routes for tasks
   resources :tasks
+
+  get 'payment/new' => 'payment#new', as: "payment"
+
+  post 'braintree/checkout' => "payment#checkout", as: "braintree_checkout"
 end

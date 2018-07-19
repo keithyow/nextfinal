@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :test do
@@ -63,3 +65,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
  # Use jQuery
  gem 'jquery-rails'
+
+ gem 'pg_search'
+
+ gem 'braintree'
+
+ gem 'figaro'

@@ -3,7 +3,15 @@ class TasksController < ApplicationController
 
   def index
     if current_user != nil
-      @tasks = current_user.tasks
+      # @tasks = current_user.tasks
+      if params[:term]
+        @tasks = current_user.tasks.search_description(params[:term])
+      elsif current_user.role == "admin"
+        @tasks = Task.all
+      else
+        @tasks = current_user.tasks
+      end
+
     end
   end
 
@@ -31,14 +39,7 @@ class TasksController < ApplicationController
   def destroy
     @current = Task.find(params[:id])
     if @current.destroy
-      respond_to do |format|
-        format.html do 
-          byebug
-        redirect_to root_path
-      end
-
-        format.js {}
-      end
+      redirect_to tasks_path
     else
       # If list failsto create:
       flash.now.alert = "Couldn't delete task. Try again."
@@ -48,7 +49,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:description, :address)
+      params.require(:task).permit(:description)
     end
 
 end

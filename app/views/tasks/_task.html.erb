@@ -1,4 +1,7 @@
 <li id="<%=task.id%>">
 	<%= task.description %> <br>
-	<%= button_to "Delete", task_path(task), method: :delete, data: {confirm: "Confirm that you have finished this task? This action is irreversible"} %>
+	<% if current_user.role == "admin"%>
+		Task belongs to User: <%= task.user_id %>
+	<% end %>
+	<%= button_to "Done", task_path(task), method: :delete, data: {confirm: "Confirm that you have finished this task? This action is irreversible"} %>
 </li>
